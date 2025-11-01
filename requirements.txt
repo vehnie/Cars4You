@@ -1,0 +1,12 @@
+pandas==2.3.3
+numpy==1.26.4
+matplotlib==3.10.6
+seaborn==0.13.2
+scikit-learn==1.7.2
+rapidfuzz==3.14.1
+category-encoders==2.8.1
+scipy==1.15.3
+joblib==1.5.2
+torch==2.9.0+cu128
+deepctr-torch==0.2.9
+optuna==4.5.0

@@ -81,19 +81,50 @@ def run_once(params: Dict[str, str], epochs: int, patience: int) -> Tuple[float,
         "EPOCHS": str(epochs),
     })
 
+    # Newly exposed knobs
+    if "dnn_use_bn" in params:
+        env["DNN_USE_BN"] = "1" if params["dnn_use_bn"] else "0"
+    if "l2_reg_linear" in params:
+        env["L2_REG_LINEAR"] = str(params["l2_reg_linear"])
+    if "l2_reg_embedding" in params:
+        env["L2_REG_EMBEDDING"] = str(params["l2_reg_embedding"])
+    if "l2_reg_dnn" in params:
+        env["L2_REG_DNN"] = str(params["l2_reg_dnn"])
+    if "batch_size" in params:
+        env["BATCH_SIZE"] = str(params["batch_size"])
+    if "use_lr_scheduler" in params:
+        env["USE_LR_SCHEDULER"] = "1" if params["use_lr_scheduler"] else "0"
+    if "lr_sched_factor" in params:
+        env["LR_SCHED_FACTOR"] = str(params["lr_sched_factor"])
+    if "lr_sched_patience" in params:
+        env["LR_SCHED_PATIENCE"] = str(params["lr_sched_patience"])
+    if "lr_sched_min_lr" in params:
+        env["LR_SCHED_MIN_LR"] = str(params["lr_sched_min_lr"])
+
     # Forward optional LOG_DENSE if set in current environment
     if os.getenv("LOG_DENSE"):
         env["LOG_DENSE"] = os.getenv("LOG_DENSE")
 
     # Execute training script
-    proc = subprocess.run(
-        [sys.executable, "train_deepfm.py"],
-        cwd=os.path.dirname(__file__),
-        env=env,
-        capture_output=True,
-        text=True,
-        check=False,
-    )
+    timeout_sec = int(os.getenv("OPT_TRAIN_TIMEOUT_SEC", "0") or "0")
+    try:
+        proc = subprocess.run(
+            [sys.executable, "train_deepfm.py"],
+            cwd=os.path.dirname(__file__),
+            env=env,
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=timeout_sec if timeout_sec > 0 else None,
+        )
+    except subprocess.TimeoutExpired as te:
+        stdout = te.stdout or ""
+        stderr = te.stderr or ""
+        config = (
+            f"TIMEOUT after {timeout_sec}s. Params: LR={params['lr']}, WD={params['weight_decay']}, "
+            f"DROP={params['dropout']}, EMBED={params['embed_dim']}, DNN={params['dnn_dims']}"
+        )
+        return float("inf"), float("inf"), config, stdout, stderr
 
     stdout = proc.stdout or ""
     stderr = proc.stderr or ""
@@ -105,7 +136,11 @@ def run_once(params: Dict[str, str], epochs: int, patience: int) -> Tuple[float,
     config = (
         f"LR: {params['lr']}, WD: {params['weight_decay']}, "
         f"DROPOUT: {params['dropout']}, EMBED_DIM: {params['embed_dim']}, "
-        f"DNN_DIMS: {params['dnn_dims']}, PATIENCE: {patience}, EPOCHS: {epochs}"
+        f"DNN_DIMS: {params['dnn_dims']}, PATIENCE: {patience}, EPOCHS: {epochs}, "
+        f"BN: {int(params.get('dnn_use_bn', 0))}, BATCH: {params.get('batch_size', 'n/a')}, "
+        f"L2_lin: {params.get('l2_reg_linear', 0)}, L2_emb: {params.get('l2_reg_embedding', 0)}, L2_dnn: {params.get('l2_reg_dnn', 0)}, "
+        f"Sched: {int(params.get('use_lr_scheduler', 0))}, factor: {params.get('lr_sched_factor', 'n/a')}, "
+        f"sched_patience: {params.get('lr_sched_patience', 'n/a')}, min_lr: {params.get('lr_sched_min_lr', 'n/a')}"
     )
 
     return val_mae, test_mae, config, stdout, stderr
@@ -117,7 +152,12 @@ def objective(trial: optuna.Trial) -> float:
     Customizable via environment variables:
     - Ranges: OPT_LR_MIN/OPT_LR_MAX, OPT_DROPOUT_MIN/OPT_DROPOUT_MAX, OPT_WD_MIN/OPT_WD_MAX
     - Choices: OPT_EMBED_CHOICES (comma list), OPT_DNN_CHOICES (semicolon-separated comma lists)
+      New: OPT_BN_CHOICES (comma list of 0/1), OPT_L2_CHOICES (comma list of values),
+           OPT_BATCH_CHOICES (comma list), OPT_USE_SCHED_CHOICES (comma list of 0/1),
+           OPT_SCHED_FACTOR_MIN/MAX (floats), OPT_SCHED_PATIENCE_MIN/MAX (ints), OPT_MINLR_CHOICES (comma list)
     - Freeze: FIX_LR, FIX_DROPOUT, FIX_EMBED_DIM, FIX_WEIGHT_DECAY, FIX_DNN_DIMS
+      New: FIX_DNN_USE_BN, FIX_L2_REG_LINEAR, FIX_L2_REG_EMBEDDING, FIX_L2_REG_DNN, FIX_BATCH_SIZE,
+           FIX_USE_LR_SCHEDULER, FIX_LR_SCHED_FACTOR, FIX_LR_SCHED_PATIENCE, FIX_LR_SCHED_MIN_LR
     - Budget: OPTUNA_EPOCHS/OPTUNA_PATIENCE or TUNE_EPOCHS/TUNE_PATIENCE
     - CSV logging: OPTUNA_CSV (filename in notebooks dir)
     """
@@ -136,12 +176,32 @@ def objective(trial: optuna.Trial) -> float:
         )
     )
 
+    # Newly tunable knobs
+    bn_choices = _parse_list(os.getenv("OPT_BN_CHOICES", "0,1"), int)
+    l2_choices = [float(x) for x in os.getenv("OPT_L2_CHOICES", "0,1e-7,1e-6,1e-5,1e-4").split(",") if x.strip()]
+    batch_choices = _parse_list(os.getenv("OPT_BATCH_CHOICES", "256,512,1024"), int)
+    use_sched_choices = _parse_list(os.getenv("OPT_USE_SCHED_CHOICES", "1"), int)
+    sched_factor_min = float(os.getenv("OPT_SCHED_FACTOR_MIN", "0.3"))
+    sched_factor_max = float(os.getenv("OPT_SCHED_FACTOR_MAX", "0.7"))
+    sched_pat_min = int(os.getenv("OPT_SCHED_PATIENCE_MIN", "3"))
+    sched_pat_max = int(os.getenv("OPT_SCHED_PATIENCE_MAX", "8"))
+    min_lr_choices = [float(x) for x in os.getenv("OPT_MINLR_CHOICES", "1e-5,5e-6,1e-6").split(",") if x.strip()]
+
     # Freeze overrides
     fix_lr = os.getenv("FIX_LR")
     fix_dropout = os.getenv("FIX_DROPOUT")
     fix_embed = os.getenv("FIX_EMBED_DIM")
     fix_wd = os.getenv("FIX_WEIGHT_DECAY")
     fix_dnn = os.getenv("FIX_DNN_DIMS")
+    fix_bn = os.getenv("FIX_DNN_USE_BN")
+    fix_l2_lin = os.getenv("FIX_L2_REG_LINEAR")
+    fix_l2_emb = os.getenv("FIX_L2_REG_EMBEDDING")
+    fix_l2_dnn = os.getenv("FIX_L2_REG_DNN")
+    fix_batch = os.getenv("FIX_BATCH_SIZE")
+    fix_use_sched = os.getenv("FIX_USE_LR_SCHEDULER")
+    fix_sched_factor = os.getenv("FIX_LR_SCHED_FACTOR")
+    fix_sched_patience = os.getenv("FIX_LR_SCHED_PATIENCE")
+    fix_sched_min_lr = os.getenv("FIX_LR_SCHED_MIN_LR")
 
     # Suggest or use fixed values
     lr = float(fix_lr) if fix_lr is not None else trial.suggest_float("lr", lr_min, lr_max, log=True)
@@ -149,6 +209,16 @@ def objective(trial: optuna.Trial) -> float:
     embed_dim = int(fix_embed) if fix_embed is not None else trial.suggest_categorical("embed_dim", embed_choices)
     weight_decay = float(fix_wd) if fix_wd is not None else trial.suggest_float("weight_decay", wd_min, wd_max, log=True)
     dnn_choice = fix_dnn if fix_dnn is not None else trial.suggest_categorical("dnn_dims", dnn_choices)
+
+    dnn_use_bn = int(fix_bn) if fix_bn is not None else trial.suggest_categorical("dnn_use_bn", bn_choices)
+    l2_reg_linear = float(fix_l2_lin) if fix_l2_lin is not None else trial.suggest_categorical("l2_reg_linear", l2_choices)
+    l2_reg_embedding = float(fix_l2_emb) if fix_l2_emb is not None else trial.suggest_categorical("l2_reg_embedding", l2_choices)
+    l2_reg_dnn = float(fix_l2_dnn) if fix_l2_dnn is not None else trial.suggest_categorical("l2_reg_dnn", l2_choices)
+    batch_size = int(fix_batch) if fix_batch is not None else trial.suggest_categorical("batch_size", batch_choices)
+    use_lr_scheduler = int(fix_use_sched) if fix_use_sched is not None else trial.suggest_categorical("use_lr_scheduler", use_sched_choices)
+    lr_sched_factor = float(fix_sched_factor) if fix_sched_factor is not None else trial.suggest_float("lr_sched_factor", sched_factor_min, sched_factor_max)
+    lr_sched_patience = int(fix_sched_patience) if fix_sched_patience is not None else trial.suggest_int("lr_sched_patience", sched_pat_min, sched_pat_max)
+    lr_sched_min_lr = float(fix_sched_min_lr) if fix_sched_min_lr is not None else trial.suggest_categorical("lr_sched_min_lr", min_lr_choices)
 
     # Training budget controls
     epochs = int(os.getenv("OPTUNA_EPOCHS", os.getenv("TUNE_EPOCHS", "40")))
@@ -160,6 +230,15 @@ def objective(trial: optuna.Trial) -> float:
         "embed_dim": embed_dim,
         "weight_decay": weight_decay,
         "dnn_dims": dnn_choice,
+        "dnn_use_bn": bool(dnn_use_bn),
+        "l2_reg_linear": l2_reg_linear,
+        "l2_reg_embedding": l2_reg_embedding,
+        "l2_reg_dnn": l2_reg_dnn,
+        "batch_size": batch_size,
+        "use_lr_scheduler": bool(use_lr_scheduler),
+        "lr_sched_factor": lr_sched_factor,
+        "lr_sched_patience": lr_sched_patience,
+        "lr_sched_min_lr": lr_sched_min_lr,
     }
 
     try:
@@ -190,10 +269,10 @@ def objective(trial: optuna.Trial) -> float:
     try:
         with open(csv_path, "a", encoding="utf-8") as f:
             if first_write:
-                f.write("trial,val_mae,test_mae,lr,dropout,embed_dim,dnn_dims,weight_decay,epochs,patience\n")
+                f.write("trial,val_mae,test_mae,lr,dropout,embed_dim,dnn_dims,weight_decay,epochs,patience,batch_size,dnn_use_bn,l2_reg_linear,l2_reg_embedding,l2_reg_dnn,use_lr_scheduler,lr_sched_factor,lr_sched_patience,lr_sched_min_lr\n")
             f.write(
                 f"{trial.number},{val_mae:.6f},{test_mae:.6f},{lr},{dropout},{embed_dim},"\
-                f"{dnn_choice},{weight_decay},{epochs},{patience}\n"
+                f"{dnn_choice},{weight_decay},{epochs},{patience},{batch_size},{int(dnn_use_bn)},{l2_reg_linear},{l2_reg_embedding},{l2_reg_dnn},{int(use_lr_scheduler)},{lr_sched_factor},{lr_sched_patience},{lr_sched_min_lr}\n"
             )
     except Exception:
         # Non-fatal if logging fails; continue optimization
@@ -239,8 +318,9 @@ def main():
         )
 
     n_trials = int(os.getenv("OPTUNA_TRIALS", "10"))
+    show_progress = os.getenv("OPT_SHOW_PROGRESS", "1") == "1"
     print(f"Starting Optuna TPE optimization with {n_trials} trials (seed={seed}, pruner={pruner_name})...")
-    study.optimize(objective, n_trials=n_trials, show_progress_bar=True)
+    study.optimize(objective, n_trials=n_trials, show_progress_bar=show_progress)
 
     best = study.best_trial
     best_params = best.params
@@ -277,11 +357,28 @@ def main():
     repro = (
         f"$env:LR={best_params['lr']}; $env:DROPOUT={best_params['dropout']}; "
         f"$env:EMBED_DIM={best_params['embed_dim']}; $env:DNN_DIMS='{best_params['dnn_dims']}'; "
-        f"$env:WEIGHT_DECAY={best_params['weight_decay']}; python train_deepfm.py"
+        f"$env:DNN_USE_BN={(1 if best_params.get('dnn_use_bn', False) else 0)}; "
+        f"$env:L2_REG_LINEAR={best_params.get('l2_reg_linear', 0)}; $env:L2_REG_EMBEDDING={best_params.get('l2_reg_embedding', 0)}; $env:L2_REG_DNN={best_params.get('l2_reg_dnn', 0)}; "
+        f"$env:WEIGHT_DECAY={best_params['weight_decay']}; $env:BATCH_SIZE={best_params.get('batch_size', 512)}; "
+        f"$env:USE_LR_SCHEDULER={(1 if best_params.get('use_lr_scheduler', False) else 0)}; $env:LR_SCHED_FACTOR={best_params.get('lr_sched_factor', 0.5)}; "
+        f"$env:LR_SCHED_PATIENCE={best_params.get('lr_sched_patience', 4)}; $env:LR_SCHED_MIN_LR={best_params.get('lr_sched_min_lr', 1e-5)}; "
+        f"python train_deepfm.py"
     )
     print("\nPowerShell repro command:")
     print(repro)
+    # Explicitly flush and exit cleanly to avoid lingering progress bar/threads on some Windows shells
+    try:
+        sys.stdout.flush()
+        sys.stderr.flush()
+    except Exception:
+        pass
+    return
 
 
 if __name__ == "__main__":
     main()
+    # Force process termination in edge cases where non-daemon threads linger
+    try:
+        sys.exit(0)
+    except SystemExit:
+        pass

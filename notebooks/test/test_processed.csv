@@ -1407,7 +1407,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 99,57.7,1.6,golf,volkswagen,diesel,manual,5,16522.63157894737
 16346,41.5,2.0,focus,ford,petrol,manual,8,13458.59761235955
 54695,61.4,1.8,b-class,mercedes,diesel,manual,13,18976.71084337349
-9297,36.2,2.0,gt,opel,petrol,manual,7,9302.35294117647
+9297,36.2,2.0,gt,ford,petrol,manual,7,0.0
 20053,68.9,1.0,aygo,toyota,petrol,manual,8,7900.640677966102
 12464,34.9,2.0,tt,audi,petrol,semi-auto,6,24003.975
 29940,54.3,1.4,corsa-e,opel,petrol,manual,11,8207.773987206823
@@ -4129,7 +4129,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 16067,55.4,1.4,corsa-e,opel,petrol,manual,9,8207.773987206823
 13231,47.1,1.4,mokka x,opel,petrol,manual,8,12695.58361774744
 61616,56.5,2.1,c-class,mercedes,diesel,semi-auto,11,23814.0
-14682,36.2,2.0,gt,opel,petrol,manual,9,9302.35294117647
+14682,36.2,2.0,gt,ford,petrol,manual,9,0.0
 12300,47.1,1.5,c-class,mercedes,petrol,semi-auto,6,23814.0
 10163,35.8,2.0,gl-class,mercedes,diesel,automatic,6,34747.53539823009
 22578,67.3,2.0,beetle,volkswagen,diesel,manual,8,8352.857142857143
@@ -4309,7 +4309,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 16986,64.2,2.0,3 series,bmw,diesel,automatic,7,19637.59002770083
 4916,45.6,2.0,3 series,bmw,petrol,semi-auto,6,19637.59002770083
 19678,44.1,1.6,b-ma,ford,petrol,automatic,8,7785.0
-29188,47.1,1.4,gt,opel,petrol,manual,10,9302.35294117647
+29188,47.1,1.4,gt,ford,petrol,manual,10,0.0
 153000,33.6,1.8,c-class,mercedes,petrol,automatic,19,23814.0
 123,50.4,2.0,3 series,bmw,diesel,automatic,6,19637.59002770083
 14419,51.4,1.2,manual,skoda,petrol,automatic,9,0.0
@@ -4417,7 +4417,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 11472,57.6,2.7,tucson,hyundai,diesel,automatic,9,16013.516129032258
 32726,36.2,3.0,gl-class,mercedes,diesel,semi-auto,9,34747.53539823009
 5034,55.4,2.0,b-class,mercedes,diesel,automatic,6,18976.71084337349
-24000,47.1,1.4,gt,opel,petrol,manual,9,9302.35294117647
+24000,47.1,1.4,gt,ford,petrol,manual,9,0.0
 45340,83.1,1.5,1 series,bmw,diesel,manual,9,15977.55633802817
 12506,54.3,2.6,fiesta,ford,other,manual,8,10207.472551130248
 13351,68.9,1.5,b-ma,ford,diesel,manual,8,7785.0
@@ -4872,7 +4872,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 4079,67.0,1.0,aygo,toyota,petrol,semi-auto,9,7900.640677966102
 36643,62.8,1.0,fiesta,ford,petrol,manual,8,10207.472551130248
 10228,57.7,1.0,b-ma,ford,petrol,manual,8,7785.0
-26738,47.1,1.4,gt,opel,petrol,manual,8,9302.35294117647
+26738,47.1,1.4,gt,ford,petrol,manual,8,0.0
 18838,64.2,1.5,kuga,ford,diesel,manual,7,15931.233846153846
 3149,46.3,2.0,tiguan,volkswagen,diesel,semi-auto,5,21783.758196721312
 5161,65.7,1.0,fiesta,ford,petrol,manual,7,10207.472551130248
@@ -5570,7 +5570,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 15645,52.3,1.0,polo,volkswagen,petrol,manual,7,11305.013422818793
 42650,65.7,1.0,fiesta,ford,petrol,manual,7,10207.472551130248
 16614,44.1,2.0,sirocco,volkswagen,petrol,automatic,8,13558.18918918919
-54071,65.7,1.6,gt,opel,diesel,manual,10,9302.35294117647
+54071,65.7,1.6,gt,ford,diesel,manual,10,0.0
 11537,69.0,1.0,aygo,toyota,petrol,manual,9,7900.640677966102
 20381,70.6,2.0,octavia,skoda,diesel,manual,8,14434.103773584906
 118200,58.9,2.0,golf,volkswagen,diesel,manual,9,16522.63157894737
@@ -7291,7 +7291,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 3119,47.9,1.5,golf,volkswagen,petrol,manual,6,16522.63157894737
 5320,42.8,2.0,karoq,skoda,diesel,automatic,6,20956.695652173912
 14410,58.9,1.5,yaris,toyota,petrol,manual,7,11099.757647058825
-27742,65.7,1.6,gt,opel,diesel,manual,9,9302.35294117647
+27742,65.7,1.6,gt,ford,diesel,manual,9,0.0
 17501,53.0,2.0,focus,ford,petrol,manual,7,13458.59761235955
 6995,44.1,2.0,a4,audi,diesel,automatic,6,19654.073033707864
 36000,72.4,2.6,octavia,skoda,diesel,semi-auto,8,14434.103773584906
@@ -8221,7 +8221,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 45000,64.2,2.0,1 series,bmw,diesel,automatic,11,15977.55633802817
 33957,55.4,1.4,corsa-e,opel,petrol,manual,9,8207.773987206823
 26796,51.4,1.0,focus,ford,petrol,automatic,9,13458.59761235955
-13764,47.1,1.4,gt,opel,petrol,manual,10,9302.35294117647
+13764,47.1,1.4,gt,ford,petrol,manual,10,0.0
 61140,65.7,2.1,c-class,mercedes,diesel,manual,9,23814.0
 22620,65.7,1.0,fiesta,ford,petrol,manual,7,10207.472551130248
 10920,64.2,2.1,c-class,mercedes,diesel,automatic,6,23814.0
@@ -9345,7 +9345,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 36124,44.8,1.9,ecosport,ford,petrol,manual,8,12293.388235294118
 32966,57.7,1.2,ka,ford,petrol,manual,12,7881.928571428572
 34091,67.3,2.1,cl-class,mercedes,diesel,automatic,9,21773.630136986303
-2305,47.1,1.4,gt,opel,petrol,manual,7,9302.35294117647
+2305,47.1,1.4,gt,ford,petrol,manual,7,0.0
 12836,44.1,1.5,c-class,mercedes,petrol,automatic,6,23814.0
 9350,45.6,1.3,b-class,mercedes,petrol,semi-auto,6,18976.71084337349
 17000,54.82,2.1,c-class,mercedes,diesel,automatic,9,23814.0
@@ -10218,7 +10218,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 17954,74.3,1.5,focus,ford,diesel,manual,8,13458.59761235955
 44900,58.9,2.0,3 series,bmw,diesel,automatic,11,19637.59002770083
 4000,38.62,1.5,focus,ford,diesel,automatic,6,13458.59761235955
-4694,47.1,1.4,gt,opel,petrol,manual,7,9302.35294117647
+4694,47.1,1.4,gt,ford,petrol,manual,7,0.0
 2000,52.3,1.2,corsa-e,opel,petrol,manual,6,8207.773987206823
 27115,53.3,1.4,golf,volkswagen,petrol,manual,10,16522.63157894737
 10732,39.2,1.4,mokka x,opel,other,manual,6,12695.58361774744
@@ -11537,7 +11537,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 1000,48.7,2.0,4 series,bmw,petrol,semi-auto,5,22580.463768115944
 3560,46.3,1.5,insignia,opel,petrol,manual,6,11238.566176470587
 5683,43.5,1.4,mokka x,opel,petrol,semi-auto,8,12695.58361774744
-21000,36.2,2.0,gt,opel,petrol,manual,8,9302.35294117647
+21000,36.2,2.0,gt,ford,petrol,manual,8,0.0
 37158,40.4,2.0,freestyle,ford,diesel,manual,11,22659.3
 12935,69.0,1.0,aygo,toyota,petrol,manual,9,7900.640677966102
 3000,37.2,1.4,mokka x,opel,petrol,semi-auto,6,12695.58361774744
@@ -13176,7 +13176,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 4001,56.5,2.0,a-class,mercedes,diesel,automatic,6,19236.153392330383
 6484,68.9,1.5,b-ma,ford,diesel,manual,7,7785.0
 9613,60.1,1.2,polo,volkswagen,petrol,manual,9,11305.013422818793
-7225,47.1,1.4,gt,opel,petrol,manual,8,9302.35294117647
+7225,47.1,1.4,gt,ford,petrol,manual,8,0.0
 17774,62.8,1.0,citigo-e iv,skoda,petrol,manual,9,7030.583333333333
 38659,51.4,1.4,astra,opel,petrol,manual,9,10343.345945945946
 50680,68.9,2.0,manta,opel,diesel,manual,11,0.0
@@ -13882,7 +13882,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 13485,54.38,1.0,focus,ford,petrol,manual,7,13458.59761235955
 6,39.2,1.4,mokka x,opel,petrol,manual,6,12695.58361774744
 13261,56.5,1.0,i30,hyundai,petrol,manual,2,9425.22633744856
-34391,47.1,1.4,gt,opel,petrol,manual,9,9302.35294117647
+34391,47.1,1.4,gt,ford,petrol,manual,9,0.0
 12,48.7,2.0,5 series,bmw,petrol,semi-auto,6,23758.70895522388
 46000,37.7,3.0,1 series,bmw,petrol,automatic,10,15977.55633802817
 8144,41.5,2.0,focus,ford,petrol,manual,8,13458.59761235955
@@ -14192,7 +14192,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 60368,68.9,2.0,golf,volkswagen,diesel,manual,12,16522.63157894737
 25117,61.7,1.7,tucson,hyundai,diesel,manual,8,16013.516129032258
 52119,60.1,1.2,polo,volkswagen,petrol,manual,10,11305.013422818793
-8596,42.8,1.4,gt,opel,petrol,automatic,8,9302.35294117647
+8596,42.8,1.4,gt,ford,petrol,automatic,8,0.0
 15105,49.6,1.0,golf,volkswagen,petrol,manual,6,16522.63157894737
 74521,60.1,1.0,i30,hyundai,petrol,manual,8,9425.22633744856
 1884,50.4,2.0,a5,audi,diesel,semi-auto,5,23254.372727272726
@@ -14430,7 +14430,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 12833,61.4,2.0,e-class,mercedes,diesel,semi-auto,7,24752.6
 20000,47.1,1.2,c-hr,toyota,petrol,manual,8,20980.32911392405
 14407,56.5,2.1,gla-class,mercedes,diesel,semi-auto,9,20056.223214285717
-32584,47.1,1.4,gt,opel,petrol,manual,14,9302.35294117647
+32584,47.1,1.4,gt,ford,petrol,manual,14,0.0
 826,29.4,4.0,q7,audi,diesel,semi-auto,5,42010.86363636364
 33546,83.1,1.5,1 series,bmw,diesel,manual,9,15977.55633802817
 17568,39.8,2.2,santa fe,hyundai,diesel,semi-auto,6,27578.129032258064
@@ -14807,7 +14807,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 17000,64.2,1.0,polo,volkswagen,petrol,manual,7,11305.013422818793
 57502,74.3,1.6,octavia,skoda,diesel,manual,11,14434.103773584906
 53088,53.3,1.6,tiguan,volkswagen,diesel,manual,11,21783.758196721312
-32795,47.1,2.1,gt,opel,petrol,manual,10,9302.35294117647
+32795,47.1,2.1,gt,ford,petrol,manual,10,0.0
 32139,65.7,1.0,fiesta,ford,petrol,manual,7,10207.472551130248
 13200,30.4,2.0,x3,bmw,petrol,automatic,7,27214.971014492752
 14600,46.3,1.2,ix20,hyundai,petrol,manual,6,9035.35294117647
@@ -15313,7 +15313,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 22661,68.9,1.0,citigo-e iv,skoda,petrol,manual,8,7030.583333333333
 51023,72.4,1.6,astra,opel,diesel,manual,8,10343.345945945946
 15834,64.2,1.0,fabia,skoda,petrol,manual,7,9893.40350877193
-22351,47.1,1.4,gt,opel,petrol,manual,9,9302.35294117647
+22351,47.1,1.4,gt,ford,petrol,manual,9,0.0
 4501,38.2,2.0,superb,skoda,petrol,semi-auto,6,19239.33606557377
 51380,61.12,2.0,c-class,mercedes,other,automatic,9,23814.0
 19286,74.3,1.5,a-class,mercedes,diesel,automatic,8,19236.153392330383
@@ -16323,7 +16323,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 61176,62.8,2.0,a6,audi,diesel,manual,10,22082.455445544558
 37605,68.86,2.0,focus,ford,diesel,manual,9,13458.59761235955
 1853,40.9,1.5,2 series,bmw,petrol,semi-auto,6,19867.826530612245
-32910,36.2,2.0,gt,opel,petrol,manual,10,9302.35294117647
+32910,36.2,2.0,gt,ford,petrol,manual,10,0.0
 8225,40.9,2.0,gl-class,mercedes,diesel,automatic,6,34747.53539823009
 3515,77.48,4.0,c-class,mercedes,petrol,automatic,6,23814.0
 28,33.2,3.0,q7,audi,diesel,semi-auto,6,42010.86363636364
@@ -17511,7 +17511,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 6250,44.1,2.0,kamiq,skoda,diesel,automatic,6,19655.19047619048
 15107,51.4,1.2,citigo 3 doors,skoda,petrol,semi-auto,8,12696.74647887324
 9200,31.4,3.0,x7,bmw,diesel,semi-auto,6,67848.28571428571
-32300,60.1,2.0,gt,opel,diesel,manual,10,9302.35294117647
+32300,60.1,2.0,gt,ford,diesel,manual,10,0.0
 67610,74.3,1.6,1 series,bmw,diesel,manual,11,15977.55633802817
 6000,37.7,2.0,golf,volkswagen,petrol,semi-auto,6,16522.63157894737
 47566,56.5,1.0,focus,ford,petrol,manual,11,13458.59761235955
@@ -17710,7 +17710,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 61691,64.2,2.1,c-class,mercedes,diesel,semi-auto,10,23814.0
 75106,42.8,1.6,b-ma,ford,petrol,manual,12,7785.0
 48534,67.3,2.0,focus,ford,diesel,manual,8,13458.59761235955
-26514,47.1,1.4,gt,opel,petrol,manual,8,9302.35294117647
+26514,47.1,1.4,gt,ford,petrol,manual,8,0.0
 26276,58.9,1.0,golf,volkswagen,petrol,manual,8,16522.63157894737
 16437,47.9,1.4,q3,audi,petrol,semi-auto,7,23611.486206896552
 63930,56.62,2.1,c-class,mercedes,diesel,automatic,12,23814.0
@@ -20468,7 +20468,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 5554,34.5,3.0,x3,bmw,petrol,semi-auto,6,27214.971014492752
 3243,37.2,2.0,a5,audi,petrol,automatic,6,23254.372727272726
 33083,74.3,2.0,a4,audi,diesel,manual,8,19654.073033707864
-21716,42.8,1.4,gt,opel,petrol,automatic,9,9302.35294117647
+21716,42.8,1.4,gt,ford,petrol,automatic,9,0.0
 17444,47.1,1.4,mokka x,opel,petrol,manual,7,12695.58361774744
 9046,47.1,1.4,mokka x,opel,petrol,manual,7,12695.58361774744
 15000,60.1,1.0,polo,volkswagen,petrol,manual,9,11305.013422818793
@@ -24187,7 +24187,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 24795,65.7,1.6,mokka,opel,diesel,manual,9,9123.567307692309
 1000,62.8,1.5,a-class,mercedes,diesel,semi-auto,5,19236.153392330383
 21152,64.2,1.6,ix20,hyundai,diesel,manual,9,9035.35294117647
-13533,47.1,1.4,gt,opel,petrol,manual,8,9302.35294117647
+13533,47.1,1.4,gt,ford,petrol,manual,8,0.0
 54800,33.2,2.0,q5,audi,petrol,automatic,15,30643.86842105263
 27080,57.6,1.7,tucson,hyundai,diesel,semi-auto,8,16013.516129032258
 10584,62.8,1.0,fiesta,ford,petrol,manual,8,10207.472551130248
@@ -25646,7 +25646,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 26883,151.04,1.5,2 series,bmw,petrol,manual,9,19867.826530612245
 25917,42.8,1.4,beetle,volkswagen,petrol,manual,10,8352.857142857143
 28790,67.3,1.0,a3,audi,petrol,manual,9,17430.669144981413
-11661,65.7,1.6,gt,opel,diesel,manual,7,9302.35294117647
+11661,65.7,1.6,gt,ford,diesel,manual,7,0.0
 39684,67.3,2.0,focus,ford,diesel,manual,8,13458.59761235955
 85627,68.9,2.1,a-class,mercedes,diesel,automatic,9,19236.153392330383
 11421,60.1,2.0,5 series,bmw,other,semi-auto,6,23758.70895522388
@@ -25757,7 +25757,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 6000,47.9,1.5,yaris,toyota,petrol,automatic,6,11099.757647058825
 20735,53.3,1.4,golf,volkswagen,petrol,manual,9,16522.63157894737
 4855,64.2,2.0,focus,ford,diesel,automatic,6,13458.59761235955
-28521,47.1,1.4,gt,opel,petrol,manual,9,9302.35294117647
+28521,47.1,1.4,gt,ford,petrol,manual,9,0.0
 12002,42.2,1.4,mokka,opel,petrol,manual,9,9123.567307692309
 27407,60.1,1.2,polo,volkswagen,petrol,automatic,10,11305.013422818793
 12837,20.75,1.2,crossland x,opel,petrol,manual,6,12867.190476190475
@@ -26135,7 +26135,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 6452,40.4,2.0,a5,audi,petrol,semi-auto,6,23254.372727272726
 28068,166.0,1.4,passat,volkswagen,other,semi-auto,8,16734.68
 50,44.1,1.0,kona,hyundai,petrol,manual,6,15391.72549019608
-34372,47.1,1.4,gt,opel,petrol,manual,9,9302.35294117647
+34372,47.1,1.4,gt,ford,petrol,manual,9,0.0
 26807,47.9,1.4,q3,audi,petrol,semi-auto,8,23611.486206896552
 9467,65.7,1.0,fiesta,ford,petrol,manual,10,10207.472551130248
 1000,32.5,3.0,e-class,mercedes,petrol,semi-auto,6,24752.6
@@ -28284,7 +28284,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 13589,60.1,1.0,focus,ford,petrol,manual,7,13458.59761235955
 45849,56.9,2.1,c-class,mercedes,diesel,automatic,10,23814.0
 39000,62.8,2.1,c-class,mercedes,diesel,semi-auto,10,23814.0
-26342,47.1,1.4,gt,opel,petrol,manual,9,9302.35294117647
+26342,47.1,1.4,gt,ford,petrol,manual,9,0.0
 9,45.59,2.0,c-class,mercedes,diesel,semi-auto,14,23814.0
 29988,60.1,1.2,fabia,skoda,petrol,manual,8,9893.40350877193
 19758,47.1,2.0,c-class,mercedes,petrol,semi-auto,14,23814.0
@@ -28318,7 +28318,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 22887,55.4,1.5,2 series,bmw,petrol,manual,8,19867.826530612245
 5427,54.3,2.0,x3,bmw,diesel,semi-auto,6,27214.971014492752
 14780,28.5,1.3,a-class,mercedes,other,manual,6,19236.153392330383
-8193,47.1,1.4,gt,opel,petrol,manual,7,9302.35294117647
+8193,47.1,1.4,gt,ford,petrol,manual,7,0.0
 22584,44.1,1.0,t-roc,volkswagen,petrol,manual,7,22946.123809523808
 250,35.8,1.6,gla-class,mercedes,petrol,semi-auto,5,20056.223214285717
 17398,57.7,1.2,ka,ford,petrol,manual,10,7881.928571428572
@@ -28503,7 +28503,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 13437,65.7,1.0,fiesta,ford,petrol,manual,10,10207.472551130248
 44,39.8,1.5,t-roc,volkswagen,petrol,semi-auto,6,22946.123809523808
 10494,68.9,1.0,citigo-e iv,skoda,petrol,manual,8,7030.583333333333
-25389,47.1,1.4,gt,opel,petrol,manual,9,9302.35294117647
+25389,47.1,1.4,gt,ford,petrol,manual,9,0.0
 28250,74.3,1.5,a-class,mercedes,diesel,automatic,8,19236.153392330383
 24740,58.9,1.5,yaris,toyota,petrol,manual,8,11099.757647058825
 31913,68.9,1.5,a-class,mercedes,diesel,manual,8,19236.153392330383
@@ -28697,7 +28697,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 20112,52.3,3.0,e-class,mercedes,other,automatic,8,24752.6
 13984,61.4,1.0,focus,ford,petrol,manual,8,13458.59761235955
 16907,51.4,1.4,astra,opel,petrol,manual,8,10343.345945945946
-25798,65.7,1.6,gt,opel,diesel,manual,8,9302.35294117647
+25798,65.7,1.6,gt,ford,diesel,manual,8,0.0
 40038,65.7,1.6,touran,volkswagen,diesel,semi-auto,9,18302.840909090908
 4849,47.1,1.0,a3,audi,petrol,automatic,6,17430.669144981413
 12072,57.7,2.0,c-class,mercedes,diesel,automatic,7,23814.0
@@ -28891,7 +28891,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 86706,62.18,2.1,c-class,mercedes,diesel,semi-auto,8,23814.0
 30256,64.2,2.1,c-class,mercedes,diesel,semi-auto,8,23814.0
 42643,42.2,3.0,q5,audi,diesel,semi-auto,8,30643.86842105263
-17363,47.1,1.4,gt,opel,petrol,manual,9,9302.35294117647
+17363,47.1,1.4,gt,ford,petrol,manual,9,0.0
 14061,72.4,2.0,e-class,mercedes,diesel,semi-auto,6,24752.6
 15951,50.4,2.0,tiguan,volkswagen,diesel,manual,8,21783.758196721312
 2485,39.8,1.5,q3,audi,petrol,manual,6,23611.486206896552
@@ -29483,7 +29483,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 99740,72.4,2.0,a4,audi,diesel,automatic,9,19654.073033707864
 30509,58.9,2.0,tiguan,volkswagen,diesel,manual,9,21783.758196721312
 33492,56.5,1.4,golf,volkswagen,petrol,semi-auto,10,16522.63157894737
-15000,44.8,1.6,gt,opel,petrol,manual,9,9302.35294117647
+15000,44.8,1.6,gt,ford,petrol,manual,9,0.0
 5774,37.7,2.0,golf,volkswagen,petrol,semi-auto,6,16522.63157894737
 9321,55.4,1.1,fiesta,ford,petrol,manual,6,10207.472551130248
 12659,34.5,4.0,c-class,mercedes,petrol,automatic,10,23814.0
@@ -29495,7 +29495,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 13950,64.2,1.0,fabia,skoda,petrol,manual,8,9893.40350877193
 5931,39.2,2.2,santa fe,hyundai,diesel,semi-auto,6,27578.129032258064
 36004,55.4,1.0,b-ma,ford,petrol,manual,10,7785.0
-19000,47.1,1.4,gt,opel,petrol,manual,8,9302.35294117647
+19000,47.1,1.4,gt,ford,petrol,manual,8,0.0
 13542,64.2,1.0,fabia,skoda,petrol,manual,7,9893.40350877193
 9704,50.4,1.5,insignia,opel,petrol,manual,6,11238.566176470587
 29066,55.4,1.4,corsa-e,opel,petrol,manual,8,8207.773987206823
@@ -30518,7 +30518,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 27045,64.0,1.0,focus,ford,petrol,manual,8,13458.59761235955
 29959,55.4,2.0,x1,bmw,diesel,semi-auto,9,20154.63779527559
 71869,61.4,2.0,bronco,ford,diesel,manual,11,12300.57627118644
-30000,36.2,2.0,gt,opel,petrol,manual,9,9302.35294117647
+30000,36.2,2.0,gt,ford,petrol,manual,9,0.0
 33301,56.5,2.1,gla-class,mercedes,diesel,semi-auto,14,20056.223214285717
 66000,46.3,2.1,c-class,mercedes,diesel,automatic,15,23814.0
 9427,40.4,2.0,q5,audi,petrol,semi-auto,7,30643.86842105263
@@ -32279,7 +32279,7 @@ mileage,mpg,engine_size,model,brand,fuel_type,transmission,age,avg_price
 15774,53.3,1.4,golf,volkswagen,petrol,manual,9,16522.63157894737
 15121,76.3,1.6,astra,opel,diesel,manual,8,10343.345945945946
 33608,67.3,2.1,c-class,mercedes,diesel,automatic,9,23814.0
-9882,36.2,2.0,gt,opel,petrol,manual,7,9302.35294117647
+9882,36.2,2.0,gt,ford,petrol,manual,7,0.0
 35000,78.5,1.6,astra,opel,diesel,manual,9,10343.345945945946
 35116,58.8,1.2,fabia,skoda,petrol,manual,9,9893.40350877193
 9400,33.2,2.0,q3,audi,petrol,automatic,6,23611.486206896552

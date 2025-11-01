@@ -1,34 +1,70 @@
 {
-  "lr": 0.00369531093470407,
-  "weight_decay": 9.90562486089741e-06,
-  "dropout": 0.302532641836375,
+  "lr": 0.0036528420965552437,
+  "weight_decay": 2.026446830830357e-06,
+  "dropout": 0.3164638436505863,
   "embedding_dim": 8,
+  "embedding_per_feature": {},
   "dnn_hidden_units": [
     512,
     256,
     128
   ],
-  "patience": 12,
+  "dnn_use_bn": true,
+  "l2_reg_linear": 0.0,
+  "l2_reg_embedding": 1e-07,
+  "l2_reg_dnn": 1e-07,
+  "patience": 10,
   "epochs_run": 100,
-  "best_val_mae": 1486.1392267797578,
-  "final_test_mae": 1547.3202813331643,
+  "batch_size": 256,
+  "best_val_mae": 1297.9834150569316,
+  "final_test_mae": 1323.265411554285,
   "device": "cuda",
   "sparse_features": [
     "brand",
     "model",
     "fuel_type",
-    "transmission"
+    "transmission",
+    "brand_model",
+    "age_mileage_bin"
   ],
   "dense_features": [
     "mileage",
     "mpg",
     "engine_size",
     "age",
-    "avg_price"
+    "avg_price",
+    "mpg_per_engine"
   ],
-  "log_dense": [
+  "dense_features_used": [
     "mileage",
-    "age"
+    "mpg",
+    "engine_size",
+    "age",
+    "avg_price",
+    "mpg_per_engine"
   ],
-  "input_csv": "C:\\Users\\vehnie\\Documents\\Master\\Machine Learning\\Cars4You\\notebooks\\df_train.csv"
+  "log_dense": [],
+  "log_dense_augment": false,
+  "input_csv": "C:\\Users\\vehnie\\Documents\\Master\\Machine Learning\\Cars4You\\notebooks\\df_train.csv",
+  "scaler_type": "standard",
+  "bins_file": "bins.json",
+  "rare_freq_threshold": 5,
+  "unk_token": "UNK",
+  "unk_index_per_feature": {
+    "brand": 8,
+    "model": 10,
+    "fuel_type": 2,
+    "transmission": 2,
+    "brand_model": 0,
+    "age_mileage_bin": 24
+  },
+  "lr_scheduler": {
+    "enabled": true,
+    "factor": 0.43294705814989504,
+    "patience": 6,
+    "min_lr": 1e-05,
+    "final_lr": 0.00012834237480227156
+  },
+  "mae_history_csv": "C:\\Users\\vehnie\\Documents\\Master\\Machine Learning\\Cars4You\\notebooks\\assets_deepfm\\mae_history.csv",
+  "mae_curve_png": "C:\\Users\\vehnie\\Documents\\Master\\Machine Learning\\Cars4You\\notebooks\\assets_deepfm\\mae_curve.png"
 }

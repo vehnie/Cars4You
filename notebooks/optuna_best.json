@@ -1,10 +1,19 @@
 {
-  "best_val_mae": 1576.4025,
-  "best_test_mae": 1612.9547,
+  "best_val_mae": 1288.3273,
+  "best_test_mae": 1329.2909,
   "best_params": {
-    "lr": 0.0036953109347040705,
-    "dropout": 0.302532641836375,
-    "weight_decay": 9.905624860897407e-06
+    "lr": 0.0036528420965552437,
+    "dropout": 0.3164638436505863,
+    "weight_decay": 2.026446830830357e-06,
+    "dnn_use_bn": 1,
+    "l2_reg_linear": 0.0,
+    "l2_reg_embedding": 1e-07,
+    "l2_reg_dnn": 1e-07,
+    "batch_size": 256,
+    "use_lr_scheduler": 1,
+    "lr_sched_factor": 0.43294705814989504,
+    "lr_sched_patience": 6,
+    "lr_sched_min_lr": 1e-05
   },
-  "config": "LR: 0.0036953109347040705, WD: 9.905624860897407e-06, DROPOUT: 0.302532641836375, EMBED_DIM: 8, DNN_DIMS: 512,256,128, PATIENCE: 12, EPOCHS: 60"
+  "config": "LR: 0.0036528420965552437, WD: 2.026446830830357e-06, DROPOUT: 0.3164638436505863, EMBED_DIM: 8, DNN_DIMS: 512,256,128, PATIENCE: 0, EPOCHS: 100, BN: 1, BATCH: 256, L2_lin: 0.0, L2_emb: 1e-07, L2_dnn: 1e-07, Sched: 1, factor: 0.43294705814989504, sched_patience: 6, min_lr: 1e-05"
 }
