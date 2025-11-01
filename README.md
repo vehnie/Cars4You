@@ -1,6 +1,26 @@
+# Cars4You — Used Car Price Prediction
+
+This project was developed for the Machine Learning course at NOVA IMS (Masters in Data Science and Advanced Analytics). The purpose is to predict used car prices; we approached the problem with a DeepFM model for tabular regression. In brief, we built a canonical brand/model reference, cleaned and engineered features, prepared train/test CSVs, tuned DeepFM hyperparameters with Optuna, trained the model, and generated predictions and a competition-style submission.
+
 # Notebooks Guide
 
 This guide explains what each notebook in the `notebooks/` folder does and the recommended order to run them. It also points to the training and prediction scripts that the notebooks feed into.
+
+## Environment Setup (Windows, PowerShell)
+- Prerequisite: Python `3.10` recommended.
+- Create and activate a virtual environment:
+  - `cd C:\Users\vehnie\Documents\Master\Machine Learning\Cars4You`
+  - `python -m venv .venv`
+  - `.venv\Scripts\Activate.ps1`
+  - If activation is blocked, run: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
+- Upgrade `pip` and install dependencies:
+  - `python -m pip install --upgrade pip`
+  - `pip install -r requirements.txt`
+- Verify key packages:
+  - `python -c "import torch, optuna, deepctr_torch; print('OK')"`
+- CUDA note for PyTorch:
+  - If `torch==2.9.0+cu128` fails to install via PyPI, install the matching CUDA build from PyTorch’s wheel index: `pip install --extra-index-url https://download.pytorch.org/whl/cu128 torch==2.9.0+cu128`
+  - Or use CPU-only: `pip install torch==2.9.0+cpu`
 
 ## Overview
 - Build a clean brand/model reference.
@@ -104,3 +124,8 @@ This guide explains what each notebook in the `notebooks/` folder does and the r
 - After training, you can display the MAE curve in any notebook:
   - `from IPython.display import Image; Image(filename='notebooks/assets_deepfm/mae_curve.png')`
  - Adjust training settings by editing variables inside `notebooks/train_deepfm.py` (`main`).
+
+## References
+- DeepFM (Guo et al., 2017, IJCAI’17): A factorization-machine based neural network originally proposed for Click-Through-Rate (CTR) prediction; shown competitive on tabular tasks (e.g., Borisov et al., 2022).
+- ProbSAINT: Probabilistic Tabular Regression for Used Car Pricing — https://arxiv.org/html/2403.03812v1
+- Improving Car Price Predictions by Identifying Key Features — https://sesjournal.org/index.php/1/article/view/104/724
