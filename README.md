@@ -1,6 +1,6 @@
 # Cars4You — Used Car Price Prediction
 
-This project was developed for the Machine Learning course at NOVA IMS (Masters in Data Science and Advanced Analytics). The purpose is to predict used car prices; we approached the problem with a DeepFM model for tabular regression. In brief, we built a canonical brand/model reference, cleaned and engineered features, prepared train/test CSVs, tuned DeepFM hyperparameters with Optuna, trained the model, and generated predictions and a competition-style submission.
+This project was developed for the Machine Learning course at NOVA IMS (Masters in Data Science and Advanced Analytics). The purpose is to predict used car prices; we approached the problem with a DeepFM model for tabular regression. In brief, we built a canonical brand/model reference, cleaned and engineered features, prepared train/test CSVs, tuned DeepFM hyperparameters with Optuna, trained the model, and generated predictions.
 
 # Notebooks Guide
 
@@ -129,3 +129,6 @@ This guide explains what each notebook in the `notebooks/` folder does and the r
 - DeepFM (Guo et al., 2017, IJCAI’17): A factorization-machine based neural network originally proposed for Click-Through-Rate (CTR) prediction; shown competitive on tabular tasks (e.g., Borisov et al., 2022).
 - ProbSAINT: Probabilistic Tabular Regression for Used Car Pricing — https://arxiv.org/html/2403.03812v1
 - Improving Car Price Predictions by Identifying Key Features — https://sesjournal.org/index.php/1/article/view/104/724
+
+## Results
+- Best achieved MAE: `1437`, evaluated on 30% of the test dataset.
