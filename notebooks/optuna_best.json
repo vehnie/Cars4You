@@ -1,0 +1,10 @@
+{
+  "best_val_mae": 1576.4025,
+  "best_test_mae": 1612.9547,
+  "best_params": {
+    "lr": 0.0036953109347040705,
+    "dropout": 0.302532641836375,
+    "weight_decay": 9.905624860897407e-06
+  },
+  "config": "LR: 0.0036953109347040705, WD: 9.905624860897407e-06, DROPOUT: 0.302532641836375, EMBED_DIM: 8, DNN_DIMS: 512,256,128, PATIENCE: 12, EPOCHS: 60"
+}

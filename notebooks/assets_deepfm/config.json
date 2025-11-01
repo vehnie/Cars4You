@@ -1,0 +1,34 @@
+{
+  "lr": 0.00369531093470407,
+  "weight_decay": 9.90562486089741e-06,
+  "dropout": 0.302532641836375,
+  "embedding_dim": 8,
+  "dnn_hidden_units": [
+    512,
+    256,
+    128
+  ],
+  "patience": 12,
+  "epochs_run": 100,
+  "best_val_mae": 1486.1392267797578,
+  "final_test_mae": 1547.3202813331643,
+  "device": "cuda",
+  "sparse_features": [
+    "brand",
+    "model",
+    "fuel_type",
+    "transmission"
+  ],
+  "dense_features": [
+    "mileage",
+    "mpg",
+    "engine_size",
+    "age",
+    "avg_price"
+  ],
+  "log_dense": [
+    "mileage",
+    "age"
+  ],
+  "input_csv": "C:\\Users\\vehnie\\Documents\\Master\\Machine Learning\\Cars4You\\notebooks\\df_train.csv"
+}
