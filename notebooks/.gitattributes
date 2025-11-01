@@ -1,0 +1,2 @@
+notebooks/assets/rfc_model.joblib filter=lfs diff=lfs merge=lfs -text
+assets/rfc_model.joblib filter=lfs diff=lfs merge=lfs -text
