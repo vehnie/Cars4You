@@ -92,7 +92,7 @@ This guide explains what each notebook in the `notebooks/` folder does and the r
 
 ## Artifacts
 - `notebooks/assets/` (created by `notebook_1.ipynb`):
-  - `rfc_model.joblib` — RandomForestClassifier trained for imputing missing categorical values.
+  - `rfc_model.joblib` — RandomForestClassifier trained for imputing missing categorical values (not included due to size constraints).
   - `rfc_model_cols.joblib` — Column list used to align one-hot or dummy features when imputing with the RFC.
   - `train_ohe_cols.joblib` — Saved training one-hot/dummy column names for consistent encoding at inference.
 
