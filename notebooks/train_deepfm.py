@@ -103,6 +103,10 @@ def main(args: argparse.Namespace):
     # dense features
     dense_features = ['mileage', 'mpg', 'engine_size', 'age', 'avg_price']
 
+    # Filter to available columns to avoid KeyError when optional features are missing
+    sparse_features = [f for f in sparse_features if f in df.columns]
+    dense_features = [f for f in dense_features if f in df.columns]
+
     # mpg per engine size
     if {'mpg', 'engine_size'}.issubset(df.columns):
         df['mpg_per_engine'] = (df['mpg'].astype(float) / np.clip(df['engine_size'].astype(float), a_min=1e-6, a_max=None)).replace([np.inf, -np.inf], np.nan).fillna(0.0)
@@ -185,7 +189,7 @@ def main(args: argparse.Namespace):
 
 
     # Scale dense features
-    use_robust_scaler = False
+    use_robust_scaler = True
     scaler = RobustScaler() if use_robust_scaler else StandardScaler()
     X_train[dense_features_used] = scaler.fit_transform(X_train[dense_features_used])
     X_val[dense_features_used] = scaler.transform(X_val[dense_features_used])
