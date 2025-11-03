@@ -16,8 +16,8 @@
   "patience": 10,
   "epochs_run": 100,
   "batch_size": 256,
-  "best_val_mae": 1382.4445768539745,
-  "final_test_mae": 1423.435198885402,
+  "best_val_mae": 1300.2698996971992,
+  "final_test_mae": 1332.0745786763312,
   "device": "cuda",
   "sparse_features": [
     "brand",
@@ -29,20 +29,24 @@
   ],
   "dense_features": [
     "mileage",
+    "mpg",
     "engine_size",
     "age",
-    "avg_price"
+    "avg_price",
+    "mpg_per_engine"
   ],
   "dense_features_used": [
     "mileage",
+    "mpg",
     "engine_size",
     "age",
-    "avg_price"
+    "avg_price",
+    "mpg_per_engine"
   ],
   "log_dense": [],
   "log_dense_augment": false,
   "input_csv": "C:\\Users\\vehnie\\Documents\\Master\\Machine Learning\\Cars4You\\notebooks\\df_train.csv",
-  "scaler_type": "standard",
+  "scaler_type": "robust",
   "bins_file": "bins.json",
   "rare_freq_threshold": 5,
   "unk_token": "UNK",
@@ -59,7 +63,7 @@
     "factor": 0.43294705814989504,
     "patience": 6,
     "min_lr": 1e-05,
-    "final_lr": 2.4056899673748303e-05
+    "final_lr": 0.0002964389580349957
   },
   "mae_history_csv": "C:\\Users\\vehnie\\Documents\\Master\\Machine Learning\\Cars4You\\notebooks\\assets_deepfm\\mae_history.csv",
   "mae_curve_png": "C:\\Users\\vehnie\\Documents\\Master\\Machine Learning\\Cars4You\\notebooks\\assets_deepfm\\mae_curve.png"
