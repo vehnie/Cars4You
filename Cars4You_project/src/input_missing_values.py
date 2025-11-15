@@ -6,7 +6,7 @@ from collections import Counter
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.impute import KNNImputer
 
-def input_year(df):
+def impute_year(df):
 
     bins = [0, 10000, 30000, 60000, 100000, 200000, np.inf]
     labels = ["0–10k", "10–30k", "30–60k", "60–100k", "100–200k", "200k+"]
@@ -26,7 +26,7 @@ def input_year(df):
     return df
 
 
-def input_mileage(df):
+def impute_mileage(df):
 
     # 1. Calculate median mileage for each year
     median_mileage_by_year = df.groupby('year')['mileage'].median()
@@ -44,7 +44,7 @@ def input_mileage(df):
 
 
 
-def input_tax(df):
+def impute_tax(df):
 
     bins = [0, 50, 110, 175, 200, 240, np.inf]
     labels = ['0-50', '50-110', '110-175', '175-200', '200-240', '240+']
@@ -75,7 +75,7 @@ def input_tax(df):
 
 
 
-def input_mpg(df):
+def impute_mpg(df):
 
     # Define tax bins — tune these based on your data’s range
     tax_bins = [0, 50, 150, 300, 600, np.inf]
@@ -136,7 +136,7 @@ def impute_transmission(row, df):
     return np.nan  # nothing found
 
 
-def input_brand(df):
+def impute_brand(df):
     # 1. Compute the most frequent brand for each model
     most_freq_brand_per_model = (
         df.dropna(subset=['brand', 'model'])
@@ -154,7 +154,7 @@ def input_brand(df):
 
     return df
 
-def input_model(df):
+def impute_model(df):
     # Copy the DataFrame
     df_model_impute = df.copy()
 
@@ -213,7 +213,7 @@ def input_model(df):
 
     return df
 
-def input_brand_model(df):
+def impute_brand_model(df):
     df_brand_model = df.copy()
 
     # --- 1. Encode categorical predictors ---
@@ -338,26 +338,26 @@ def impute_engine_size(row, df):
 
 
 def main(df):
-    # input brand
-    df = input_brand(df)
-    # input model
-    df = input_model(df)
-    # input brand and model if both are missing
-    df = input_brand_model(df)
-    # input year
-    df= input_year(df)
-    #input mileage
-    df= input_mileage(df)
-    # input tax
-    df= input_tax(df)
-    # input mpg
-    df= input_mpg(df)
-    #input transmission
-    df= input_transmission(df)
-    # input fuel_type
-    df= input_fuel_type(df)
-    # input engine_size
-    df= input_engine_size(df)
+    # impute brand
+    df = impute_brand(df)
+    # impute model
+    df = impute_model(df)
+    # impute brand and model if both are missing
+    df = impute_brand_model(df)
+    # impute year
+    df= impute_year(df)
+    #impute mileage
+    df= impute_mileage(df)
+    # impute tax
+    df= impute_tax(df)
+    # impute mpg
+    df= impute_mpg(df)
+    #impute transmission
+    df= impute_transmission(df)
+    # impute fuel_type
+    df= impute_fuel_type(df)
+    # impute engine_size
+    df= impute_engine_size(df)
 
     return df
 
